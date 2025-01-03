@@ -5,6 +5,7 @@
         // locators
         #region Locators
         IWebElement skipSignInButton => _driver.FindElement(By.Id("btn2"));
+        
 
 
         #endregion

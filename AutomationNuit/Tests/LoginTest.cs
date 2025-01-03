@@ -4,6 +4,13 @@ namespace AutomationNunit.Tests
 {
     public class LoginTest: BasePage
     {
+        LoginPage loginPage;
+        RegisterPage registerPage;
+        public LoginTest() {
+            loginPage = new LoginPage();
+            registerPage = new RegisterPage();
+        }
+
 
         [OneTimeSetUp]
         public void OneTimeSetup()
@@ -13,9 +20,13 @@ namespace AutomationNunit.Tests
         }        
 
         [Test]
-        public void ClickSignInButtonShouldNavigateToRegisterScreen()
-        {            
-          
+        public void ClickSkipSignInButtonShouldNavigateToRegisterScreen()
+        {
+            loginPage.ClickOnSkipSignInButton();
+            var actualTitle = registerPage.GetRegisterPageTitle();
+            //Assert.That(actualTitle, Is.EqualTo("Register"));
+            Assert.AreEqual("Register", actualTitle);
+            registerPage.EnterFirstName("");
 
         }
 
