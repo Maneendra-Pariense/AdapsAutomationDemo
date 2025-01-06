@@ -24,9 +24,8 @@ namespace AutomationNunit.Tests
         {
             loginPage.ClickOnSkipSignInButton();
             var actualTitle = registerPage.GetRegisterPageTitle();
-            //Assert.That(actualTitle, Is.EqualTo("Register"));
-            Assert.AreEqual("Register", actualTitle);
-            registerPage.EnterFirstName("");
+            Assert.That(actualTitle, Is.EqualTo("Register"));            
+           
 
         }
 
