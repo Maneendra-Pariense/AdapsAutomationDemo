@@ -31,13 +31,23 @@ namespace AutomationNunit.Tests
             registerPage.EnterEmail("123@gmail.com");
             registerPage.EnterPhone("1234567890");
             registerPage.SelectGender("Male");
-            registerPage.SelectHobby("Cricket");
-            registerPage.SelectHobby("Hockey");
+            //registerPage.SelectHobby("Cricket");
+            //registerPage.SelectHobby("Hockey");
 
             string[] hobbies = { "Hockey", "Cricket" };
 
             registerPage.SelectHobby(hobbies);
-            registerPage.SelectHobby1("Movies");
+            //registerPage.SelectHobby1("Movies");
+
+            registerPage.SelectSkill("Android");
+
+
+            registerPage.SelectLanguages("Croatian");
+            registerPage.SelectLanguages("Danish");
+
+            Thread.Sleep(2000); 
+            registerPage.DeSelectLanguages("Croatian");
+            registerPage.SelectDateOfBirth("", "", "");
 
 
 
@@ -49,7 +59,7 @@ namespace AutomationNunit.Tests
         [TearDown]
         public void Teardown()
         {
-            Thread.Sleep(2000);
+            Thread.Sleep(5000);
             _driver.Quit();
         }
     }

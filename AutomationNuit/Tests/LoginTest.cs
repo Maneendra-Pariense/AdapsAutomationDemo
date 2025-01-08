@@ -6,9 +6,11 @@ namespace AutomationNunit.Tests
     {
         LoginPage loginPage;
         RegisterPage registerPage;
+        HomePage homePage;
         public LoginTest() {
             loginPage = new LoginPage();
             registerPage = new RegisterPage();
+            homePage = new HomePage(); 
         }
 
 
@@ -24,8 +26,9 @@ namespace AutomationNunit.Tests
         {
             loginPage.ClickOnSkipSignInButton();
             var actualTitle = registerPage.GetRegisterPageTitle();
-            Assert.That(actualTitle, Is.EqualTo("Register"));            
-           
+            Assert.That(actualTitle, Is.EqualTo("Register"));
+
+            homePage.NavigateTo("SwitchTo", "Alerts"); 
 
         }
 

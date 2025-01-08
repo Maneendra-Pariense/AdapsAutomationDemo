@@ -28,6 +28,7 @@ namespace AutomationNunit.Pages
             }
             Console.WriteLine("setup method");
             GoToUrl();
+            _driver.Manage().Window.Maximize();
         }
 
         private void GoToUrl()

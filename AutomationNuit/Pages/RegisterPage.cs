@@ -1,5 +1,6 @@
 ﻿
 
+using OpenQA.Selenium.Support.UI;
 using WebDriverManager.Clients;
 
 namespace AutomationNunit.Pages
@@ -24,6 +25,31 @@ namespace AutomationNunit.Pages
         IWebElement hobbies(string hobby) => _driver.FindElement(By.XPath($"//label[text() = 'Hobbies']/../div//input[@value='{hobby}']"));
 
         List<IWebElement> hobbies1 => _driver.FindElements(By.XPath("//label[text() = 'Hobbies']/../div//input")).ToList();
+
+        IWebElement skillsDropdown => _driver.FindElement(By.Id("Skills"));
+        IWebElement languages => _driver.FindElement(By.Id("msdd"));
+        List<IWebElement> languagesMultiSelect => _driver.FindElements(By.XPath("//multi-select//ul/li/a")).ToList();
+        IWebElement languagesElement(string lang) => _driver.FindElement(By.XPath($"//multi-select//ul/li/a[text() = '{lang}']"));
+
+        List<IWebElement> selectedLanguages => _driver.FindElements(By.XPath("//*[@class = 'ui-autocomplete-multiselect-item']/span")).ToList();
+
+
+
+        // Element finding strategies
+
+        //using and opertion
+
+        //p[contains(text(), 'performance') and contains(text(), 'column')]
+
+        //input[@class = 'something' and @value = 'text']
+
+        // All Headers
+        // //div[@id = 'myGrid']//div[@class = 'ag-header-row ag-header-row-column']/div[@role= 'columnheader']
+
+        // Get First row
+        //IWebElement firstRow(string rowId) => //*[@id="myGrid"]//div[@role = 'row' and @row-id= '{rowId}']
+
+
 
         #endregion
 
@@ -99,7 +125,12 @@ namespace AutomationNunit.Pages
                 var hobbyValue = h.GetAttribute("value");
                 if (hobbyValue.Equals(hobby))
                 {
-                    h.Click();
+                    
+                    var isSelected = h.Selected;
+                    if (!isSelected)
+                    {
+                        h.Click();
+                    }
                     break;
 
                 }
@@ -121,6 +152,51 @@ namespace AutomationNunit.Pages
 
         }
 
+        public void SelectSkill(string skill)
+        {
+            SelectElement skillsSelect = new SelectElement(skillsDropdown);
+            //skillsSelect.SelectByText(skill);
+
+            skillsSelect.SelectByValue(skill);
+
+            var selectedOption = skillsSelect.SelectedOption;
+            Console.WriteLine(selectedOption.Text);
+            
+        }
+
+
+        public void SelectLanguages(string language)
+        {
+            languages.Click();
+            foreach(var lang in languagesMultiSelect)
+            {
+                if (lang.Text.Equals(language))
+                {
+                    lang.Click();
+                    break;
+                }                   
+                
+            }
+        }
+
+        public void DeSelectLanguages(string language)
+        {
+            languages.Click();
+            foreach (var lang in selectedLanguages)
+            {
+                if (lang.Text.Equals(language))
+                {
+                    lang.Click();
+                    break;
+                }
+
+            }
+        }
+
+        public void SelectDateOfBirth(string year, string month, string date)
+        {
+            // 
+        }
         #endregion
 
     }
