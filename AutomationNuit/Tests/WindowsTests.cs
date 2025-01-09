@@ -2,18 +2,17 @@
 
 namespace AutomationNunit.Tests
 {
-    public class DatePickerTest: BasePage
+    public class WindowsTests: BasePage
     {
         HomePage homePage;
         LoginPage loginPage;
-        DatePickerPage datePickerPage;
-
-
-        public DatePickerTest() {
+        WindowsPage windowsPage;
+        
+        public WindowsTests() {
             homePage = new HomePage();
             loginPage = new LoginPage();
-            datePickerPage = new DatePickerPage();
-                
+            windowsPage = new WindowsPage();
+           
         }
 
         [OneTimeSetUp]
@@ -24,13 +23,10 @@ namespace AutomationNunit.Tests
         }
 
         [Test]
-        public void DatePickerValidation()
+        public void WindowsTestValidation()
         {
             loginPage.ClickOnSkipSignInButton();
-            homePage.NavigateTo("Widgets", " Datepicker ");
-
-            datePickerPage.selectDate(2024, 10 , 10 );
-
+            homePage.NavigateTo("SwitchTo", "Windows");
 
         }
 

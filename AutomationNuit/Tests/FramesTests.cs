@@ -2,18 +2,16 @@
 
 namespace AutomationNunit.Tests
 {
-    public class DatePickerTest: BasePage
+    public class FramesTests: BasePage
     {
         HomePage homePage;
         LoginPage loginPage;
-        DatePickerPage datePickerPage;
+        FramesPage framesPage;
 
-
-        public DatePickerTest() {
+        public FramesTests() {
             homePage = new HomePage();
             loginPage = new LoginPage();
-            datePickerPage = new DatePickerPage();
-                
+            framesPage = new FramesPage();
         }
 
         [OneTimeSetUp]
@@ -24,13 +22,11 @@ namespace AutomationNunit.Tests
         }
 
         [Test]
-        public void DatePickerValidation()
+        public void FramesTestValidation()
         {
             loginPage.ClickOnSkipSignInButton();
-            homePage.NavigateTo("Widgets", " Datepicker ");
-
-            datePickerPage.selectDate(2024, 10 , 10 );
-
+            homePage.NavigateTo("SwitchTo", "Frames");
+            
 
         }
 
