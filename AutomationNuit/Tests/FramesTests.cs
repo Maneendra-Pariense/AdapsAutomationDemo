@@ -26,7 +26,21 @@ namespace AutomationNunit.Tests
         {
             loginPage.ClickOnSkipSignInButton();
             homePage.NavigateTo("SwitchTo", "Frames");
-            
+            framesPage.SingleIFrame();
+            homePage.NavigateTo("SwitchTo", "Frames");
+
+
+
+        }
+        [Test]
+        public void FramesTestMultipleValidation()
+        {
+            loginPage.ClickOnSkipSignInButton();
+            homePage.NavigateTo("SwitchTo", "Frames");
+            framesPage.MultipleIFrame();
+            //homePage.NavigateTo("SwitchTo", "Frames");
+
+
 
         }
 

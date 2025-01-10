@@ -15,18 +15,51 @@ namespace AutomationNunit.Tests
            
         }
 
-        [OneTimeSetUp]
-        public void OneTimeSetup()
+        [SetUp]
+        public void OneTimeSetup(){ Setup(); }
+
+        [Test]
+        public void WindowsTabbedTestValidation()
         {
-            Setup();
+            loginPage.ClickOnSkipSignInButton();
+            homePage.NavigateTo("SwitchTo", "Windows");
+            windowsPage.ClickOnTab("#Tabbed");
+            windowsPage.GetWindowHandleCount();
+            var parentWindowName =  windowsPage.GetCurrentWindowName();
+            Assert.That(windowsPage.GetWindowHandleCount(), Is.EqualTo(1));
+            windowsPage.GetWindowTitle();
+            windowsPage.ClickOnClickButton("Tabbed");
+            Assert.That(windowsPage.GetWindowHandleCount(), Is.EqualTo(2));
+            windowsPage.SwitchToWindow();
+            windowsPage.GetWindowTitle();
+            windowsPage.SwitchToWindow(parentWindowName);
+            windowsPage.GetWindowTitle();
+
+
+
 
         }
 
         [Test]
-        public void WindowsTestValidation()
+        public void WindowsSeperateTestValidation()
         {
             loginPage.ClickOnSkipSignInButton();
-            homePage.NavigateTo("SwitchTo", "Windows");
+            homePage.NavigateTo("SwitchTo", "Windows");           
+            windowsPage.ClickOnTab("#Seperate");
+            windowsPage.ClickOnClickButton("Seperate");
+
+
+
+        }
+
+        [Test]
+        public void WindowsMultipleTestValidation()
+        {
+            loginPage.ClickOnSkipSignInButton();
+            homePage.NavigateTo("SwitchTo", "Windows");            
+            windowsPage.ClickOnTab("#Multiple");
+            windowsPage.ClickOnClickButton("Multiple");
+
 
         }
 

@@ -28,6 +28,23 @@ namespace AutomationNunit.Tests
         {
             loginPage.ClickOnSkipSignInButton();
             homePage.NavigateTo("SwitchTo", "Alerts");
+            alertsPage.HandleAlertWithOK();
+
+        }
+        [Test]
+        public void AlertsTestValidationCancel()
+        {
+            loginPage.ClickOnSkipSignInButton();
+            homePage.NavigateTo("SwitchTo", "Alerts");
+            alertsPage.HandleAlertWithOK();
+
+        }
+        [Test]
+        public void AlertsTestValidationText()
+        {
+            loginPage.ClickOnSkipSignInButton();
+            homePage.NavigateTo("SwitchTo", "Alerts");
+            alertsPage.HandleAlertWithText();
 
         }
 
