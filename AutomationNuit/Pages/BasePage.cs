@@ -9,8 +9,8 @@ namespace AutomationNunit.Pages
 {
     public class BasePage
     {
-        public static IWebDriver _driver;
-
+        [ThreadStatic] public static IWebDriver _driver;
+        
         public void Setup()
         {
             string browser = "chrome";

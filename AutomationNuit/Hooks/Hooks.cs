@@ -1,11 +1,14 @@
 using AutomationNunit.Pages;
+[assembly: LevelOfParallelism(3)]
+[assembly: Parallelizable(scope: ParallelScope.Fixtures)]
 
 namespace AutomationNunit.Hooks
 {
-    [SetUpFixture]
+    
+    [TestFixture]
     public class Hooks: BasePage
     {
-        [OneTimeSetUp]
+        [SetUp]
         public void OneTimeSetup()
         {            
             Setup();   

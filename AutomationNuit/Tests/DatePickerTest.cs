@@ -2,7 +2,9 @@
 
 namespace AutomationNunit.Tests
 {
-    public class DatePickerTest: BasePage
+    //[Parallelizable(scope: ParallelScope.Fixtures)]
+    [TestFixture]
+    public class DatePickerTest: Hooks.Hooks
     {
         HomePage homePage;
         LoginPage loginPage;
@@ -15,13 +17,7 @@ namespace AutomationNunit.Tests
             datePickerPage = new DatePickerPage();
                 
         }
-
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            Setup();
-
-        }
+               
 
         [Test]
         public void DatePickerValidation()
@@ -33,12 +29,6 @@ namespace AutomationNunit.Tests
 
 
         }
-
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(5000);
-            _driver.Quit();
-        }
+       
     }
 }

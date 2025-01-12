@@ -2,7 +2,9 @@
 
 namespace AutomationNunit.Tests
 {
-    public class WindowsTests: BasePage
+    [Parallelizable(scope: ParallelScope.All)]
+    [TestFixture]
+    public class WindowsTests: Hooks.Hooks
     {
         HomePage homePage;
         LoginPage loginPage;
@@ -13,10 +15,7 @@ namespace AutomationNunit.Tests
             loginPage = new LoginPage();
             windowsPage = new WindowsPage();
            
-        }
-
-        [SetUp]
-        public void OneTimeSetup(){ Setup(); }
+        }    
 
         [Test]
         public void WindowsTabbedTestValidation()
@@ -62,12 +61,6 @@ namespace AutomationNunit.Tests
 
 
         }
-
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(5000);
-            _driver.Quit();
-        }
+       
     }
 }

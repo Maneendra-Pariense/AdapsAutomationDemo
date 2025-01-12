@@ -2,7 +2,9 @@
 
 namespace AutomationNunit.Tests
 {
-    public class FramesTests: BasePage
+    //[Parallelizable(scope: ParallelScope.Fixtures)]
+    [TestFixture]
+    public class FramesTests: Hooks.Hooks
     {
         HomePage homePage;
         LoginPage loginPage;
@@ -12,14 +14,7 @@ namespace AutomationNunit.Tests
             homePage = new HomePage();
             loginPage = new LoginPage();
             framesPage = new FramesPage();
-        }
-
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            Setup();
-
-        }
+        }       
 
         [Test]
         public void FramesTestValidation()
@@ -28,10 +23,8 @@ namespace AutomationNunit.Tests
             homePage.NavigateTo("SwitchTo", "Frames");
             framesPage.SingleIFrame();
             homePage.NavigateTo("SwitchTo", "Frames");
-
-
-
         }
+
         [Test]
         public void FramesTestMultipleValidation()
         {
@@ -39,16 +32,8 @@ namespace AutomationNunit.Tests
             homePage.NavigateTo("SwitchTo", "Frames");
             framesPage.MultipleIFrame();
             //homePage.NavigateTo("SwitchTo", "Frames");
-
-
-
         }
 
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(5000);
-            _driver.Quit();
-        }
+       
     }
 }

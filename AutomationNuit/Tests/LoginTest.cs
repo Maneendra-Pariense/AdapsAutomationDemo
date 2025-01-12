@@ -2,7 +2,9 @@
 
 namespace AutomationNunit.Tests
 {
-    public class LoginTest: BasePage
+    //[Parallelizable(scope: ParallelScope.Fixtures)]
+    [TestFixture]
+    public class LoginTest: Hooks.Hooks
     {
         LoginPage loginPage;
         RegisterPage registerPage;
@@ -12,14 +14,6 @@ namespace AutomationNunit.Tests
             registerPage = new RegisterPage();
             homePage = new HomePage(); 
         }
-
-
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            Setup();
-
-        }        
 
         [Test]
         public void ClickSkipSignInButtonShouldNavigateToRegisterScreen()
@@ -31,12 +25,6 @@ namespace AutomationNunit.Tests
             homePage.NavigateTo("SwitchTo", "Alerts"); 
 
         }
-
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(2000);
-            _driver.Quit();
-        }
+       
     }
 }

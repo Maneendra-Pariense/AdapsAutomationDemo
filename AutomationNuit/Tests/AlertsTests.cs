@@ -1,8 +1,12 @@
 ﻿using AutomationNunit.Pages;
 
+
 namespace AutomationNunit.Tests
 {
-    public class AlertsTests: BasePage
+    //[Parallelizable(scope: ParallelScope.Fixtures)]
+    [TestFixture]
+    
+    public class AlertsTests: Hooks.Hooks
     {
         HomePage homePage;
         LoginPage loginPage;
@@ -15,13 +19,7 @@ namespace AutomationNunit.Tests
             alertsPage = new AlertsPage();
             
         }
-
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            Setup();
-
-        }
+                
 
         [Test]
         public void AlertsTestValidation()
@@ -47,12 +45,6 @@ namespace AutomationNunit.Tests
             alertsPage.HandleAlertWithText();
 
         }
-
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(5000);
-            _driver.Quit();
-        }
+        
     }
 }

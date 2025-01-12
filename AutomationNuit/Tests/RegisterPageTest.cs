@@ -2,7 +2,9 @@
 
 namespace AutomationNunit.Tests
 {
-    public class RegisterPageTest: BasePage
+    //[Parallelizable(scope: ParallelScope.Fixtures)]
+    [TestFixture]
+    public class RegisterPageTest: Hooks.Hooks
     {
         public LoginPage loginPage;
         public RegisterPage registerPage;
@@ -12,13 +14,7 @@ namespace AutomationNunit.Tests
             registerPage = new RegisterPage();
         }
 
-        [OneTimeSetUp]
-        public void OneTimeSetup()
-        {
-            Setup();
-
-        }
-
+        
         [Test]
         public void AddRegistration()
         {
@@ -53,14 +49,6 @@ namespace AutomationNunit.Tests
 
 
 
-        }
-
-
-        [TearDown]
-        public void Teardown()
-        {
-            Thread.Sleep(5000);
-            _driver.Quit();
         }
     }
 }
