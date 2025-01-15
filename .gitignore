@@ -5,3 +5,6 @@
 /.vs
 /AutomationNuit/bin/Debug/net8.0
 /AutomationNuit/obj
+/AdapsSpecFlow/bin
+/AdapsSpecFlow/obj
+/AutomationNuit/bin/Debug/net6.0

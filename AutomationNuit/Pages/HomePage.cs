@@ -1,7 +1,4 @@
-﻿using OpenQA.Selenium.Support.UI;
-using WebDriverManager.Clients;
-
-namespace AutomationNunit.Pages
+﻿namespace AutomationNunit.Pages
 {
     public class HomePage: BasePage
     {

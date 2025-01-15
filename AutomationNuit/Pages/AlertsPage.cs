@@ -2,8 +2,7 @@
 {
     public class AlertsPage: BasePage
     {
-
-        // locator
+        // locators
         IWebElement okTab => _driver.FindElement(By.XPath("//a[@href ='#OKTab']"));
         IWebElement cancelTab => _driver.FindElement(By.XPath("//a[@href ='#CancelTab']"));
         IWebElement textbox => _driver.FindElement(By.XPath("//a[@href ='#Textbox']"));
@@ -12,8 +11,6 @@
         IWebElement cancelTabAlertButton => _driver.FindElement(By.XPath("//div[@id ='CancelTab']/button"));
 
         IWebElement textTabAlertButton => _driver.FindElement(By.XPath("//div[@id ='Textbox']/button"));
-
-        ////div[@id ='OKTab']/button
 
 
         public void HandleAlertWithOK()
@@ -26,13 +23,10 @@
             Console.WriteLine(actualText);
             //myAlert.Accept();
             myAlert.Dismiss();
-
-
         }
 
         public void HandleAlertWithOKAndCancel()
         {
-
 
         }
 
@@ -44,8 +38,6 @@
             var myAlert = _driver.SwitchTo().Alert();
             myAlert.SendKeys("verify sending text in the alert");
             myAlert.Accept();
-
-
         }
     }
 }

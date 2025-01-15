@@ -1,8 +1,7 @@
 ﻿using AutomationNunit.Pages;
 
 namespace AutomationNunit.Tests
-{
-    //[Parallelizable(scope: ParallelScope.Fixtures)]
+{    
     [TestFixture]
     public class RegisterPageTest: Hooks.Hooks
     {

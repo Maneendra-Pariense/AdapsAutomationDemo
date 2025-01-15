@@ -16,9 +16,9 @@ namespace AutomationNunit.Hooks
         }
 
         [TearDown]
-        public void TearDown()
+        public void TearDownHook()
         {
-            _driver.Quit();
+           TearDown();
         }
 
 

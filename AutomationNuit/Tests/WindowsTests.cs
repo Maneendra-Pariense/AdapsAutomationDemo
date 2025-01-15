@@ -33,10 +33,6 @@ namespace AutomationNunit.Tests
             windowsPage.GetWindowTitle();
             windowsPage.SwitchToWindow(parentWindowName);
             windowsPage.GetWindowTitle();
-
-
-
-
         }
 
         [Test]
@@ -46,9 +42,6 @@ namespace AutomationNunit.Tests
             homePage.NavigateTo("SwitchTo", "Windows");           
             windowsPage.ClickOnTab("#Seperate");
             windowsPage.ClickOnClickButton("Seperate");
-
-
-
         }
 
         [Test]
@@ -58,7 +51,6 @@ namespace AutomationNunit.Tests
             homePage.NavigateTo("SwitchTo", "Windows");            
             windowsPage.ClickOnTab("#Multiple");
             windowsPage.ClickOnClickButton("Multiple");
-
 
         }
        

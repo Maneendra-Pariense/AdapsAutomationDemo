@@ -91,5 +91,11 @@ namespace AutomationNunit.Pages
             return wait.Until(ExpectedConditions.ElementExists(target_xpath));
 
         }
+
+        public void TearDown()
+        {
+            _driver.Quit();
+            _driver.Dispose();
+        }
     }
 }
