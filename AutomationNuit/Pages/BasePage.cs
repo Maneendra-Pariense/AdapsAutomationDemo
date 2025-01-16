@@ -94,6 +94,7 @@ namespace AutomationNunit.Pages
 
         public void TearDown()
         {
+            Thread.Sleep(2000);
             _driver.Quit();
             _driver.Dispose();
         }
