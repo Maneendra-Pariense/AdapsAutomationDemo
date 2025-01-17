@@ -1,4 +1,5 @@
-﻿Feature: Calculator
+﻿@firefox
+Feature: Calculator
 
 @mytag
 Scenario: Add two numbers

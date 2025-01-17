@@ -1,6 +1,7 @@
 ﻿using OpenQA.Selenium.Chrome;
 using OpenQA.Selenium.Edge;
 using OpenQA.Selenium.Firefox;
+using OpenQA.Selenium.Support.Extensions;
 using OpenQA.Selenium.Support.UI;
 using SeleniumExtras.WaitHelpers;
 using WebDriverManager.DriverConfigs.Impl;
@@ -10,10 +11,14 @@ namespace AutomationNunit.Pages
     public class BasePage
     {
         [ThreadStatic] public static IWebDriver _driver;
-        
+        public static string browserName;
+        public static string baseDir = Directory.GetCurrentDirectory();
+        public static string testResultDir = baseDir.Replace("bin\\Debug\\net6.0", "TestResults\\");
+        public static string screenshotsDir = baseDir.Replace("bin\\Debug\\net6.0", "TestResults\\Screenshots\\");
+
         public void Setup()
         {
-            string browser = "chrome";
+            string browser = browserName ?? "chrome";
 
             switch (browser.ToLower())
             {
@@ -97,6 +102,13 @@ namespace AutomationNunit.Pages
             Thread.Sleep(2000);
             _driver.Quit();
             _driver.Dispose();
+        }
+
+        public void TakeScreenshot()
+        {
+            var screenshotPath = screenshotsDir + $"{DateTime.Now:yyyy-MM-dd_HH-mm-ss.fffff}.png";
+            _driver.TakeScreenshot().SaveAsFile(screenshotPath);
+            TestContext.AddTestAttachment(screenshotPath);
         }
     }
 }
