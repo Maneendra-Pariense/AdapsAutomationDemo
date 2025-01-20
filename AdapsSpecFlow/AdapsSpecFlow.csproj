@@ -7,6 +7,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\AlertsTest - Copy.feature.cs" />
+    <SpecFlowObsoleteCodeBehindFiles Remove="Features\AlertsTest2 - Copy.feature.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="CucumberExpressions.SpecFlow.3-9" Version="1.0.7" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
     <PackageReference Include="SpecFlow.Plus.LivingDocPlugin" Version="3.9.57" />
@@ -24,6 +29,26 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AutomationNuit\AutomationNunit.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Features\AlertsTest3.feature.cs">
+      <DependentUpon>AlertsTest3.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\AlertsTest2.feature.cs">
+      <DependentUpon>AlertsTest2.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <SpecFlowFeatureFiles Update="Features\AlertsTest3.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
+    <SpecFlowFeatureFiles Update="Features\AlertsTest2.feature">
+      <Visible>$(UsingMicrosoftNETSdk)</Visible>
+      <CodeBehindFile>%(RelativeDir)%(Filename).feature$(DefaultLanguageSourceExtension)</CodeBehindFile>
+    </SpecFlowFeatureFiles>
   </ItemGroup>
 
 </Project>

@@ -3,5 +3,5 @@ global using NUnit;
 global using TechTalk.SpecFlow;
 using NUnit.Framework;
 [assembly: Parallelizable(scope: ParallelScope.Fixtures)]
-[assembly: LevelOfParallelism(3)]
+[assembly: LevelOfParallelism(2)]
 
