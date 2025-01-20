@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<TestProfile xmlns="http://www.specflow.org/plus/TestProfile/1.5">
+	<Settings projectName="AdapsSpecFlow"/>
+	<Execution testThreadCount="3" testShedulingMode="Sequential" retryFor="None" stopAfterFailures="0"/>
+	<TestAssemblyPaths>
+		<TestAssemblyPath>AdapsSpecFlow.dll</TestAssemblyPath>
+	</TestAssemblyPaths>
+
+	<Targets>
+		<Target name="chrome">
+			<Filter>@reg</Filter>
+		</Target>
+	</Targets>
+	
+</TestProfile> 
