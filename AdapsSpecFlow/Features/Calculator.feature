@@ -7,4 +7,3 @@ Scenario: Add two numbers
 	And the second number is 70
 	When the two numbers are added
 	Then the result should be 120
-	Given User clicks on skip register button

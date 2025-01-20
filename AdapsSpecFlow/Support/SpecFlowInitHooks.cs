@@ -8,10 +8,8 @@ namespace AdapsSpecFlow.Support
     [Binding]
     public sealed class SpecFlowInitHooks: BasePage
     {
-        // For additional details on SpecFlow hooks see http://go.specflow.org/doc-hooks
-
-        [BeforeScenario("@tag1", Order =0), Scope(Tag ="")]
-        [BeforeScenario(Order = 1)]
+        //[BeforeScenario("@tag1", Order =0), Scope(Tag ="")]
+        //[BeforeScenario(Order = 1)]
         //[Scope(Tag = "@tag1")]
         public void BeforeScenarioWithTag(ScenarioContext scenarioContext)
         {
@@ -28,9 +26,9 @@ namespace AdapsSpecFlow.Support
         }
 
         [BeforeScenario(Order = 1)]
-        public void FirstBeforeScenario(FeatureContext fc)
+        public void FirstBeforeScenario(ScenarioContext sc)
         {            
-            var tags = fc.FeatureInfo.Tags;
+            var tags = sc.ScenarioInfo.ScenarioAndFeatureTags;
             bool isChrome = tags.Contains("chrome", StringComparison.InvariantCultureIgnoreCase);
             bool isfirefox = tags.Contains("firefox", StringComparison.InvariantCultureIgnoreCase);
             if (isChrome)
@@ -43,12 +41,11 @@ namespace AdapsSpecFlow.Support
             }
             Setup();
         }
-
+        
         [BeforeScenario(Order = 2)]
         public void SecondBeforeScenario(ScenarioContext scenarioContext)
-        {
-           
-            var scenarioName = scenarioContext.ScenarioInfo.Title;
+        {           
+            var scenarioName = scenarioContext.ScenarioInfo.Title;            
             Console.WriteLine("Scenario Name: {0}", scenarioName);
         }
 

@@ -1,4 +1,5 @@
-﻿namespace AutomationNunit.Pages
+﻿
+namespace AutomationNunit.Pages
 {
     public class HomePage: BasePage
     {
@@ -27,6 +28,11 @@
                 subMenuElement(mainMenu, subMenu).Click();
             }
         
+        }
+
+        public string GetTitle()
+        {
+            return _driver.Title;
         }
 
 

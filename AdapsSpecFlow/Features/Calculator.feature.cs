@@ -106,9 +106,6 @@ this.ScenarioInitialize(scenarioInfo);
 #line 9
  testRunner.Then("the result should be 120", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
-#line 10
- testRunner.Given("User clicks on skip register button", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
             }
             this.ScenarioCleanup();
         }
